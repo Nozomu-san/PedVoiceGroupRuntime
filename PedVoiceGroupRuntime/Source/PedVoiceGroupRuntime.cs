@@ -5,8 +5,12 @@ namespace PedVoiceGroupRuntime.Source;
 
 public sealed class PedVoiceGroupRuntimeScript : Script4
 {
-    protected override void OnStart(ScriptStartContext context) =>
+    protected override Task OnStartAsync(
+        ScriptStartContext context)
+    {
         StandardNatives.SET_AUDIO_FLAG(
             "LoadMPData",
             true);
+        return Task.CompletedTask;
+    }
 }
